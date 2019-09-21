@@ -1,0 +1,388 @@
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" type="text/css" href="colors.css" /> -->
+</head>
+
+<body>
+    
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #8a8fa3;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            box-shadow: 0 5px 5px -5px #afafaf;
+            padding: 10px 0;
+            /* position: fixed; */
+        }
+        
+        .logo {
+            width: 150px;
+            height: 50px;
+        }
+        
+        .menu-items {
+            display: flex;
+        }
+        
+        .menu-items div {
+            padding: 20px;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        
+        .menu-items div:hover{
+            color: #754ef9;
+        }
+        
+        .profile-block {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            background-image: url('assets/profile_bg.jpg');
+        }
+        
+        .profile-info div:nth-child(1) {
+            font-size: 30px;
+            color: #754ef9;
+            text-transform: uppercase;
+            padding-bottom: 15px;
+        }
+        
+        .profile-info div:nth-child(2) {
+            font-size: 60px;
+            text-transform: uppercase;
+            padding-bottom: 15px;
+        }
+        
+        .profile-info div:nth-child(3) {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 28px;
+            color: #8a8fa3;
+            margin: 0;
+            padding-bottom: 40px;
+        }
+        
+        button {
+            width: 200px;
+            height: 50px;
+            border-radius: 25px;
+            background-color: #754ef9;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            color: #fff;
+            text-transform: uppercase;
+            /* box-shadow: 0 5px 5px -5px #afafaf; */
+            box-shadow: 0 5px 8px 0 rgba(118,78,249,.55);
+        }
+
+        button:hover {
+            background-color: #fff;
+            border: 1px solid #754ef9;
+            color: #754ef9;
+        }
+        .about-me-block {
+            width: 80%;
+            display: block;
+            margin: auto;
+            padding: 50px 0;
+            line-height: 30px;
+            
+            
+        }
+        .about-me-head div:nth-child(1)  {
+            text-align: center;
+            font-weight: 700;
+            font-size: 45px;
+            color: #000;
+            padding-bottom: 20px;
+        }
+        
+        .about-me-head div:nth-child(2) {
+            max-width: 50%;
+            display: block;
+            margin: auto;
+            text-align: center;
+        }
+        
+        
+        .about-me-body {
+            display: grid;
+            grid-template-columns: 50% 50%;
+            column-gap: 50px;
+        }
+        
+        .intro-block {
+            padding: 20px;
+        }
+        
+        .intro-block div:nth-child(1) {
+            font-weight: bold;
+            color: #6e6e6e;
+            margin: 12px 0;
+        }
+        
+        .skills-block {
+            max-width: 300px;
+            padding: 20px;
+        }
+        
+        .skill-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .skill {
+            margin: 20px 0;
+        }
+        
+        .progress-bar {
+            width: 300px;
+            height: 8px;
+            background-color: lightgray;
+            border-radius: 10px;
+        }
+        
+        .complete {
+            width: 200px;
+            height: 8px;
+            background-color: #754ef9;
+            border-radius: 10px;
+        }
+        
+        
+        .services-grid {
+            width: 80%;
+            margin: 50px auto ;
+            display: grid;
+            grid-template-columns: 33% 33% 33%;
+            grid-gap: 20px;
+        }
+        
+        .service {
+            border: 1px solid #f4f4f4;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .service:hover {
+            /* box-shadow: 0 0 10px #fff; */
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,.1),0 10px 10px -5px rgba(0,0,0,.04)!important;
+        }
+        
+        .service .icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #754ef9;
+            display: block;
+            margin: auto;
+        }
+        
+        .service div {
+            margin-bottom: 20px;
+        }
+        
+        .service-title {
+            margin: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+
+        .hire-section {
+            background-image: url('assets/table.jpg');
+            background-size: auto;
+            height: 200px;
+            background-repeat: no-repeat;
+            text-align: center;
+            color: #fff;
+        }
+
+        .hire-section div {
+            margin: 20px;
+        }
+
+        .hire-section div:first-child{
+            font-size: 40px;
+            font-weight: bold;
+           
+        }
+
+        .footer {
+            display: flex;
+            align-items: center;
+            height: 200px;
+            background-color: #152136;
+            color: #fff;
+            text-align: center;
+            
+        }
+
+        @media (min-width: 320px) and (max-width: 480px) {
+            .header {
+                display: none;
+            }
+            .about-me-head div:nth-child(2) {
+                width: 100%;
+                background-color: gray;
+            }
+        }
+
+    </style>
+    <div class="container">
+        <div class="header">
+            <img src="assets/logo2.svg" alt="logo" class="logo">
+            <div class="menu-items">
+                <div>Home</div>
+                <div>Home</div>
+                <div>Home</div>
+                <div>Home</div>
+                <div>Home</div>
+                <div>Home</div>
+                <div>Home</div>
+                <div>Home</div>
+            </div>
+        </div>
+        
+        <div class="profile-block">
+            <div class="profile-info">
+                <div>HELLO, I’M</div>
+                <div>MARK PARKER</div>
+                <div>A Freelance UI Designer &amp; Web Developer</div>
+                <button>View my work</button>
+            </div>
+            
+            <img src="assets/hero.png" alt="person" class="profile-img">
+        </div>
+        
+        <div class="about-me-block">
+            <div class="about-me-head">
+                <div>About Me</div>
+                <div>Nunc id dui at sapien faucibus fermentum ut vel diam. Nullam tempus, nunc id efficitur sagittis, urna est ultricies eros, ac porta sem turpis quis leo.</div>
+            </div>
+            
+            <div class="about-me-body">
+                <div class="intro-block">
+                    <div>Hi There! I'm Mark Parker</div>
+                    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+                </div>
+                <div class="skills-block">
+                    <div class="skill">
+                        <div class="skill-meta">
+                            <div class="skill-name">HTML</div>
+                            <div class="skill-percent">80%</div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="complete"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill">
+                        <div class="skill-meta">
+                            <div class="skill-name">HTML</div>
+                            <div class="skill-percent">80%</div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="complete"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill">
+                        <div class="skill-meta">
+                            <div class="skill-name">HTML</div>
+                            <div class="skill-percent">80%</div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="complete"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill">
+                        <div class="skill-meta">
+                            <div class="skill-name">HTML</div>
+                            <div class="skill-percent">80%</div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="complete"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        
+        <div class="services-block">
+            <div class="about-me-head">
+                <div>My Services</div>
+                <div>Nunc id dui at sapien faucibus fermentum ut vel diam. Nullam tempus, nunc id efficitur sagittis, urna est ultricies eros, ac porta sem turpis quis leo.</div>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service">
+                    <div class="icon"></div>
+                    <div class="service-title">Web Design</div>
+                    <div class="service-description">Curabitur vitae magna felis. Nulla ac libero ornare, vestibulum lacus quis blandit enimdicta sunt.</div>
+                </div>
+                
+                <div class="service">
+                    <div class="icon"></div>
+                    <div class="service-title">Web Design</div>
+                    <div class="service-description">Curabitur vitae magna felis. Nulla ac libero ornare, vestibulum lacus quis blandit enimdicta sunt.</div>
+                </div>
+                
+                <div class="service">
+                    <div class="icon"></div>
+                    <div class="service-title">Web Design</div>
+                    <div class="service-description">Curabitur vitae magna felis. Nulla ac libero ornare, vestibulum lacus quis blandit enimdicta sunt.</div>
+                </div>
+                
+                <div class="service">
+                    <div class="icon"></div>
+                    <div class="service-title">Web Design</div>
+                    <div class="service-description">Curabitur vitae magna felis. Nulla ac libero ornare, vestibulum lacus quis blandit enimdicta sunt.</div>
+                </div>
+                
+                <div class="service">
+                    <div class="icon"></div>
+                    <div class="service-title">Web Design</div>
+                    <div class="service-description">Curabitur vitae magna felis. Nulla ac libero ornare, vestibulum lacus quis blandit enimdicta sunt.</div>
+                </div>
+                
+                <div class="service">
+                    <div class="icon"></div>
+                    <div class="service-title">Web Design</div>
+                    <div class="service-description">Curabitur vitae magna felis. Nulla ac libero ornare, vestibulum lacus quis blandit enimdicta sunt.</div>
+                </div>
+                
+            </div>
+        </div>
+
+
+        <div class="hire-section">
+            <div>Have any project on mind?</div>
+            <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua nostrud.</div>
+            <div>
+                <button>Download CV</button>
+                <button>Hire Me</button>
+            </div>
+        </div>
+
+        <div class="footer">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor inci- didunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exe- rcitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </div>
+    </div>
+    
+</body>
+</html>

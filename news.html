@@ -1,0 +1,119 @@
+<html>
+<head>
+    <title>News App</title>
+    <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</head>
+<body>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            font-family: 'Open Sans', sans-serif;
+        }
+        
+        .news-header{
+            text-align: center;
+            padding: 1em;
+            background-image: linear-gradient(90deg,#fd8383,#ff2e73);
+            text-transform: capitalize;
+            font-size: 30px;
+            /* font-weight: bold; */
+            color: #fff;
+        }
+        
+        .news-section{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2em auto;
+            flex-direction: column;
+        }
+        
+        .post{
+            width: 500px;
+            box-shadow: 0 15px 30px 0 rgba(0,0,0,.11), 0 5px 15px 0 rgba(0,0,0,.08);
+            margin-bottom: 3em;
+        }
+        
+        .post-title{
+            padding: 20px;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        .post-description{
+            line-height: 23px;
+            padding: 0 2em 2em 2em;
+        }
+        
+        .news_pic{
+            width: 500px;
+        }
+        
+        .fallback{
+            text-align: center;
+            line-height: 40px;
+            font-size: 20px;
+            margin: 5em auto;
+        }
+    </style>
+    <div class="wrapper">
+        <div class="news-header">Today's news</div>
+        <div class="news-section">
+            <!-- <div class="post">
+                <div class="post-content">
+                    <a href="https://www.npr.org/2018/11/26/670746252/ukraine-considers-martial-law-after-russia-seizes-its-ships-near-crimea">
+                        <img src="https://i.kinja-img.com/gawker-media/image/upload/s--2tqneY99--/c_fill,fl_progressive,g_center,h_900,q_80,w_1600/dsetgfdreafaemumhlqx.jpg" alt="news" class="news_pic">
+                    </a>
+                </div>
+                <div class="post-title">Red Dead Online Goes Live This Week</div>
+                <div class="post-description">
+                    The multiplayer component to Rockstar’s new Western will be out this week, the developer said today, promising a beta for Red Dead Online that will launch on a staggered schedule for Red Dead Redemption 2 owners starting tomorrow.
+                </div>
+            </div> -->
+        </div>
+        
+    </div>
+    <script>
+        window.onload = function getNewsData(){
+            var apiKey = '212b3ff89c2f46dba79a92bd866e1658';
+            var url = 'https://newsapi.org/v2/top-headlines?' + 'country=us&' + 'apiKey=' + apiKey;
+            fetch(url)
+            .then(function(response) {
+                if(response.status !== 200) {
+                    console.log('Error:' , response.status);
+                    return;
+                }
+                response.json().then(function(data){
+                    console.log(data);
+                    if(data.articles.length) {
+                        data.articles.map(function(article){
+                            if(article.url && article.urlToImage && article.title && article.description) {
+                                var news_section = document.querySelector('.news-section');
+                                var htmlQuery = `<div class="post">
+                                    <div class="post-content">
+                                        <a href=` + article.url + ` target="_blank">
+                                            <img src=` + article.urlToImage + ` alt="news" class="news_pic">
+                                        </a>
+                                    </div>
+                                    <div class="post-title">` + article.title + `</div>
+                                    <div class="post-description">` + article.description + `</div>
+                                </div>`;
+                                news_section.innerHTML += htmlQuery;
+                            }
+                        });
+                    } else {
+                        var news_section = document.querySelector('.news-section');
+                        news_section.innerHTML = `<div class="fallback">Sorry, there's nothing new today. <br> Please try again later. `
+                        }
+                        
+                    });
+                }).catch(function(err){
+                    console.log(err);
+                });
+            }
+        </script>
+    </body>
+    </html>
